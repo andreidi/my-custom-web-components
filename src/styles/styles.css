@@ -7,6 +7,7 @@
   --body-font-weight: 400;
   --body-line-height: 1.5;
   --body-color: #212529;
+  --link-color: #2196f3;
   --body-bg: #fafafa;
 }
 
@@ -63,6 +64,7 @@ header {
 .jumbotron {
   background-color: #ffffff;
   border-radius: 25px;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
   min-height: 30vh;
   padding: 2rem;
 }
@@ -72,18 +74,41 @@ header {
   text-align: center;
 }
 
-.code {
-  background-color: #f6f8fa;
-  border-radius: 10px;
-  padding: 15px;
-}
-
-.code-content {
-  font-size: 14px;
-  overflow: auto;
-}
-
 .section-title {
   font-weight: 400;
   text-align: center;
+}
+
+.container {
+  width: 100%;
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
 }

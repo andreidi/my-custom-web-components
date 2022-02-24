@@ -21,7 +21,7 @@
     .countdown-card {
       align-content: center;
       align-items: center;
-      box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.25) !important;
+      box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
       border-radius: 10%;
       background: var(--bg-color);
       display: flex;
