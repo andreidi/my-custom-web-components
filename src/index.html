@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Custom Web Components</title>
+
+    <!--build:css styles/styles.min.css-->
+    <link rel="stylesheet" href="styles/styles.css" />
+    <!--endbuild-->
+  </head>
+  <body>
+    <header>
+      <div class="jumbotron">
+        <h1 class="title">My Custom Web Components</h1>
+        <p class="description">
+          A collection of reusable & customisable Custom Web Components that I
+          use across my own vanilla JS projects.
+        </p>
+
+        <p class="description">How to use the components:</p>
+
+        <p>Import the component:</p>
+        <div class="code">
+          <pre class="code-content" id="importing-component"></pre>
+        </div>
+
+        <p>Add the component to the page:</p>
+        <div class="code">
+          <pre class="code-content" id="adding-component"></pre>
+        </div>
+
+        <p>That's it.</p>
+      </div>
+    </header>
+
+    <main>
+      <!-- Using the components -->
+      <section>
+        <h3 class="section-title">Countdown Timer</h3>
+        <countdown-timer deadline="Aug 13, 2024 12:34:00"></countdown-timer>
+      </section>
+
+      <section>
+        <h3 class="section-title">Social Icons</h3>
+        <social-icons></social-icons>
+      </section>
+
+      <section>
+        <h3 class="section-title">Footer</h3>
+        <footer-component></footer-component>
+      </section>
+      <!-- End using the components -->
+    </main>
+
+    <!-- Importing the components -->
+
+    <!--build:js components/countdown-timer/countdown-timer.min.js async -->
+    <script src="components/countdown-timer/countdown-timer.js"></script>
+    <!-- endbuild -->
+
+    <!--build:js components/social-icons/social-icons.min.js async -->
+    <script src="components/social-icons/social-icons.js"></script>
+    <!-- endbuild -->
+
+    <!--build:js components/footer/footer.min.js async -->
+    <script src="components/footer/footer.js"></script>
+    <!-- endbuild -->
+
+    <!-- End importing the components -->
+
+    <!--build:js js/app.min.js async -->
+    <script src="scripts/app.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>

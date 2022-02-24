@@ -1,0 +1,21 @@
+{
+  "name": "my-custom-web-components",
+  "version": "1.0.0",
+  "description": "A collection of Custom Web Components",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:DIAndrei/my-custom-web-components.git"
+  },
+  "scripts": {
+    "build": "gulp build"
+  },
+  "author": "Andrei Diaconu",
+  "license": "ISC",
+  "devDependencies": {
+    "del": "^6.0.0",
+    "eslint": "^8.9.0",
+    "gulp": "^4.0.2",
+    "gulp-minify": "^3.1.0"
+  }
+}
