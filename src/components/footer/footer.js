@@ -1,3 +1,9 @@
+/**
+ * mcwc-footer
+ *
+ * A basic footer component
+ */
+
 (() => {
   const template = document.createElement('template');
   const links = {
@@ -49,6 +55,7 @@
   `;
 
   class FooterComponent extends HTMLElement {
+    // Fires when an instance of the element is created or updated
     constructor() {
       super();
 
@@ -57,5 +64,6 @@
     }
   }
 
-  customElements.define('footer-component', FooterComponent);
+  // Register the custom element
+  customElements.define('mcwc-footer', FooterComponent);
 })();
