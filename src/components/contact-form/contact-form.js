@@ -1,3 +1,10 @@
+/**
+ * mcwc-contact-form
+ *
+ * A basic contact form that will send it's data to an API endpoint using Fetch API.
+ * https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+ */
+
 (() => {
   const template = document.createElement('template');
 
@@ -180,5 +187,5 @@
   }
 
   // Register the custom element
-  customElements.define('contact-form', ContactFormComponent);
+  customElements.define('mcwc-contact-form', ContactFormComponent);
 })();
