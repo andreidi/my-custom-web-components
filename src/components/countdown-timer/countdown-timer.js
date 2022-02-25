@@ -1,3 +1,12 @@
+/**
+ * mcwc-countdown-timer
+ *
+ * A countdown timer used to count down to a particular deadline.
+ * The 'deadline' attribute must be set as following
+ * <mcwc-countdown-timer deadline="date"></mcwc-countdown-timer>
+ * where 'date' is a valid JavaScript Date String format
+ */
+
 (() => {
   const template = document.createElement('template');
 
@@ -74,37 +83,44 @@
 
   class CountdownTimerComponent extends HTMLElement {
     constructor() {
+      // Fires when an instance of the element is created or updated
       super();
 
       if (!this.hasAttribute('deadline')) {
         throw new Error('deadline attribute must be passed to countdown-timer');
       }
 
+      const parsedDeadline = this._parseDeadline(this.attributes.deadline.value);
+
       this.attachShadow({ mode: 'open' });
       this.shadowRoot.appendChild(template.content.cloneNode(true));
 
-      this.deadlineTime = new Date(this.attributes.deadline.value).getTime();
+      this.deadlineTime = parsedDeadline;
       this.daysElement = this.shadowRoot.getElementById('countdown-days');
       this.hoursElement = this.shadowRoot.getElementById('countdown-hours');
       this.minutesElement = this.shadowRoot.getElementById('countdown-minutes');
       this.secondsElement = this.shadowRoot.getElementById('countdown-seconds');
     }
 
+    // Fires when an instance was inserted into the document
     connectedCallback() {
       this._update();
+
       this.countdown = setInterval(() => {
         this._update();
       }, 1000);
     }
 
+    // Fires when an instance was removed from the document
     disconnectedCallback() {
       clearInterval(this.countdown);
     }
 
+    // Calculates the remaining time and updates the countdown
     _update() {
       const distance = this.deadlineTime - Date.now();
 
-      if (distance < 0) {
+      if (distance <= 0) {
         return clearInterval(this.countdown);
       }
 
@@ -120,7 +136,19 @@
       this.minutesElement.innerHTML = minutes;
       this.secondsElement.innerHTML = seconds;
     }
+
+    // Validate and parse the deadline
+    _parseDeadline(date) {
+      const timestamp = new Date(date).getTime();
+
+      if (isNaN(timestamp)) {
+        throw new Error('deadline attribute must use a valid JavaScript Date String format');
+      }
+
+      return timestamp;
+    }
   }
 
-  customElements.define('countdown-timer', CountdownTimerComponent);
+  // Register the custom element
+  customElements.define('mcwc-countdown-timer', CountdownTimerComponent);
 })();
