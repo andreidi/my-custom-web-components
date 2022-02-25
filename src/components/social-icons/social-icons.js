@@ -1,3 +1,9 @@
+/**
+ * mcwc-social-icons
+ *
+ * A group of social media links with icons
+ */
+
 (() => {
   const template = document.createElement('template');
   const links = {
@@ -100,6 +106,7 @@
   `;
 
   class SocialIconsComponent extends HTMLElement {
+    // Fires when an instance of the element is created or updated
     constructor() {
       super();
 
@@ -108,5 +115,6 @@
     }
   }
 
-  customElements.define('social-icons', SocialIconsComponent);
+  // Register the custom element
+  customElements.define('mcwc-social-icons', SocialIconsComponent);
 })();
