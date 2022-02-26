@@ -69,13 +69,12 @@ header {
   padding: 2rem;
 }
 
-.title,
-.description {
+.section-title {
+  font-weight: 400;
   text-align: center;
 }
 
-.section-title {
-  font-weight: 400;
+.text-center {
   text-align: center;
 }
 
