@@ -16,6 +16,10 @@
       --bg-color: #FFFFFF;
       --text-color: #212121;
       --label-color: #838383;
+      --card-height: 95px;
+      --card-width: 95px;
+
+      box-sizing: border-box;
     }
 
     .countdown {
@@ -25,25 +29,26 @@
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: center;
+      font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     }
 
-    .countdown-card {
+    .countdown__card {
       align-content: center;
       align-items: center;
       box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-      border-radius: 10%;
+      border-radius: 15px;
       background: var(--bg-color);
       display: flex;
       flex-direction: column;
-      height: 90px;
+      height: var(--card-height);
       justify-content: center;
       margin: 10px;
       padding: 25px;
       text-align: center;
-      width: 90px;
+      width: var(--card-width);
     }
 
-    .countdown-card .countdown-value {
+    .countdown__card .countdown__value {
       color: var(--text-color);
       display: block;
       font-size: 3.5rem;
@@ -52,7 +57,7 @@
       margin-bottom: 8px;
     }
 
-    .countdown-card .countdown-label {
+    .countdown__card .countdown__label {
       color: var(--label-color);
       font-size: 16px;
       font-weight: 400;
@@ -62,35 +67,37 @@
   </style>
 
   <div class="countdown">
-    <div class="countdown-card">
-      <span id="countdown-days" class="countdown-value">0</span>
-      <span class="countdown-label">Days</span>
+    <div class="countdown__card">
+      <span id="countdown-days" class="countdown__value">0</span>
+      <span class="countdown__label">Days</span>
     </div>
-    <div class="countdown-card">
-      <span id="countdown-hours" class="countdown-value">00</span>
-      <span class="countdown-label">Hours</span>
+    <div class="countdown__card">
+      <span id="countdown-hours" class="countdown__value">00</span>
+      <span class="countdown__label">Hours</span>
     </div>
-    <div class="countdown-card">
-      <span id="countdown-minutes" class="countdown-value">00</span>
-      <span class="countdown-label">Minutes</span>
+    <div class="countdown__card">
+      <span id="countdown-minutes" class="countdown__value">00</span>
+      <span class="countdown__label">Minutes</span>
     </div>
-    <div class="countdown-card">
-      <span id="countdown-seconds" class="countdown-value">00</span>
-      <span class="countdown-label">Seconds</span
+    <div class="countdown__card">
+      <span id="countdown-seconds" class="countdown__value">00</span>
+      <span class="countdown__label">Seconds</span
     </div>
   </div>
 `;
 
   class CountdownTimerComponent extends HTMLElement {
+    // Fires when an instance of the element is created or updated
     constructor() {
-      // Fires when an instance of the element is created or updated
       super();
 
-      if (!this.hasAttribute('deadline')) {
+      if (!this.hasAttribute('deadline') || !this.attributes.deadline.value) {
         throw new Error('deadline attribute must be passed to countdown-timer');
       }
 
-      const parsedDeadline = this._parseDeadline(this.attributes.deadline.value);
+      const parsedDeadline = this._parseDeadline(
+        this.attributes.deadline.value
+      );
 
       this.attachShadow({ mode: 'open' });
       this.shadowRoot.appendChild(template.content.cloneNode(true));
@@ -141,8 +148,10 @@
     _parseDeadline(date) {
       const timestamp = new Date(date).getTime();
 
-      if (isNaN(timestamp)) {
-        throw new Error('deadline attribute must use a valid JavaScript Date String format');
+      if (typeof timestamp !== 'number' || isNaN(timestamp)) {
+        throw new Error(
+          'deadline attribute must use a valid JavaScript Date String format'
+        );
       }
 
       return timestamp;
