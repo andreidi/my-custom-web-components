@@ -1,10 +1,11 @@
 /**
- * mcwc-social-icons
+ * Social icons component
  *
  * A group of social media links with icons
  */
 
 (() => {
+  const COMPONENT_NAME = 'mcwc-social-icons';
   const template = document.createElement('template');
   const links = {
     instagram: 'https://www.instagram.com/',
@@ -116,5 +117,5 @@
   }
 
   // Register the custom element
-  customElements.define('mcwc-social-icons', SocialIconsComponent);
+  customElements.define(COMPONENT_NAME, SocialIconsComponent);
 })();

@@ -1,7 +1,7 @@
 /**
- * mcwc-countup
+ * Countup component
  *
- * A countup component that counts from zero up to an end number when it enters the viewport.
+ * A component that counts from zero up to an end number when it enters the viewport.
  *
  * Supported attributes:
  * end: number (required)
@@ -11,6 +11,7 @@
  */
 
 (() => {
+  const COMPONENT_NAME = 'mcwc-countup';
   const template = document.createElement('template');
   const EASING_FUNCTIONS = {
     // no easing, no acceleration
@@ -205,5 +206,5 @@
   }
 
   // Register the custom element
-  customElements.define('mcwc-countup', CountupComponent);
+  customElements.define(COMPONENT_NAME, CountupComponent);
 })();

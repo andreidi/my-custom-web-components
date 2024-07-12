@@ -1,10 +1,11 @@
 /**
- * mcwc-footer
+ * Footer component
  *
  * A basic footer component
  */
 
 (() => {
+  const COMPONENT_NAME = 'mcwc-footer';
   const template = document.createElement('template');
   const links = {
     contact: '#',
@@ -65,5 +66,5 @@
   }
 
   // Register the custom element
-  customElements.define('mcwc-footer', FooterComponent);
+  customElements.define(COMPONENT_NAME, FooterComponent);
 })();

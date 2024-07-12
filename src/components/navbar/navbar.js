@@ -1,10 +1,11 @@
 /**
- * mcwc-navbar
+ * Navbar component
  *
  * A basic navbar component
  */
 
  (() => {
+  const COMPONENT_NAME = 'mcwc-navbar';
   const template = document.createElement('template');
   const links = {
     home: '#',
@@ -86,5 +87,5 @@
   }
 
   // Register the custom element
-  customElements.define('mcwc-navbar', NavbarComponent);
+  customElements.define(COMPONENT_NAME, NavbarComponent);
 })();

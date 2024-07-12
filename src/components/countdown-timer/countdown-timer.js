@@ -1,5 +1,5 @@
 /**
- * mcwc-countdown-timer
+ * Countdown timer component
  *
  * A countdown timer used to count down to a particular deadline.
  * The 'deadline' attribute must be set as following
@@ -8,6 +8,7 @@
  */
 
 (() => {
+  const COMPONENT_NAME = 'mcwc-countdown-timer';
   const template = document.createElement('template');
 
   template.innerHTML = `
@@ -159,5 +160,5 @@
   }
 
   // Register the custom element
-  customElements.define('mcwc-countdown-timer', CountdownTimerComponent);
+  customElements.define(COMPONENT_NAME, CountdownTimerComponent);
 })();
