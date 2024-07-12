@@ -1,88 +1,79 @@
 # [my-custom-web-components](https://my-custom-web-components.netlify.app/)
 
-A collection of reusable, customisable & dependency-free Custom Web Components that I use across my own vanilla JS projects.
+A collection of reusable, customizable, and dependency-free Custom Web Components in plain HTML, CSS, and JavaScript. Just copy and paste them into your apps.
 
 ## How to use the components
 
-1. Import the component:
+1. Copy and paste the component file:
 
-```html
-<script src="path/to/custom-component.js" async></script>
-```
+    Download or copy the file containing the custom web component.
 
-_`async` attribute is recommended but not required. [More info](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-async)_
+2. Update to fit your needs:
 
-2. Add the component to the page:
+    Customize the component's HTML, CSS, and JavaScript as required to match your app's design and functionality.
 
-```html
-<custom-component attribute="a string attribute"></custom-component>
-```
+3. Import the component into your HTML:
 
-_You can pass custom attributes to the components._
+   ```html
+   <script src="path/to/your/custom-component.js" async></script>
+   ```
 
-## Using the minified version
+   _`async` attribute is recommended but not required. [More info](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-async)_
 
-1. Make sure the dependencies are installed:
+4. Insert the component to the page:
 
-```
-npm i
-```
+   ```html
+   <your-custom-component-tag attribute="a string attribute"></your-custom-component-tag>
+   ```
 
-2. Run the build script:
+That's it! Your custom web component should now be integrated and functional within your application.
 
-```
-npm run build
-```
-
-_The script will minify the components in `build` folder._
-
-3. Use the minified component instead:
-
-```html
-<script src="path/to/custom-component.min.js" async></script>
-```
-
-## Contributing
-
-_Note: I use `component-name` as branch names. For forks, I suggest (not mandatory) to use `component-name/feature-name` as branch names._
+## Contributing suggestions
 
 1. Fork the repo
-```
-git clone git@github.com/diandrei/my-custom-web-components.git
-```
+
+   ```
+   git clone git@github.com/andreidi/my-custom-web-components.git
+   ```
 
 2. Add upstream remote:
-```
-git remote add upstream git@github.com/diandrei/my-custom-web-components.git
-```
+
+   ```
+   git remote add upstream git@github.com/andreidi/my-custom-web-components.git
+   ```
 
 3. Sync your fork with upstream/master:
-```
-git checkout master && git fetch upstream && git merge upstream/master && git push origin master
-```
+
+   ```
+   git checkout master && git fetch upstream && git merge upstream/master && git push origin master
+   ```
 
 4. Create your feature branch:
-```
-git checkout -b component-name/feature-name
-```
 
-5. Commit your changes:
-```
-git commit -m '[component-name/feature-name] Add a new feature.'
-```
+   ```
+   git checkout -b <component-name>/<feature-name>
+   ```
+
+5. Commit your changes using [Conventional Commits specification](https://www.conventionalcommits.org/) for messages (`<type>(<component-name>): <description>`):
+
+   ```
+   git commit -m 'feat(<component-name>): Add a new feature.'
+   ```
 
 6. Push to the branch:
-```
-git push -u origin component-name/feature-name
-```
+
+   ```
+   git push -u origin <component-name>/<feature-name>
+   ```
 
 7. Submit a pull request.
-8. Keep the `component-name/feature-name` branch up to date. I usually sync my repo with upstream at the start of every day (and before pushing changes to feature branch).
+8. Keep the `<component-name>/<feature-name>` branch up to date. I usually sync my repo with upstream at the start of every day (and before pushing changes to feature branch).
    To do so, repeat step 3, then:
-```
-git checkout component-name/feature-name
 
-git rebase master
+   ```
+   git checkout <component-name>/<feature-name>
 
-git push -f
-```
+   git rebase master
+
+   git push -f
+   ```

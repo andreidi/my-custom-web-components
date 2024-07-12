@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:DIAndrei/my-custom-web-components.git"
+    "url": "git+ssh://git@github.com:andreidi/my-custom-web-components.git"
   },
   "scripts": {
     "build": "gulp build"
