@@ -30,10 +30,10 @@ That's it! Your custom web component should now be integrated and functional wit
 
 ## Contributing suggestions
 
-1. Fork the repo
+1. [Fork the repo](https://github.com/andreidi/my-custom-web-components/fork) and clone it locally:
 
    ```
-   git clone git@github.com/andreidi/my-custom-web-components.git
+   git clone git@github.com/<your_username>/my-custom-web-components.git
    ```
 
 2. Add upstream remote:
@@ -42,33 +42,31 @@ That's it! Your custom web component should now be integrated and functional wit
    git remote add upstream git@github.com/andreidi/my-custom-web-components.git
    ```
 
-3. Sync your fork with upstream/master:
-
-   ```
-   git checkout master && git fetch upstream && git merge upstream/master && git push origin master
-   ```
-
-4. Create your feature branch:
+3. Create your feature branch:
 
    ```
    git checkout -b <component-name>/<feature-name>
    ```
 
-5. Commit your changes using [Conventional Commits specification](https://www.conventionalcommits.org/) for messages (`<type>(<component-name>): <description>`):
+4. Commit your changes using [Conventional Commits specification](https://www.conventionalcommits.org/) for messages (`<type>(<component-name>): <description>`):
 
    ```
    git commit -m 'feat(<component-name>): Add a new feature.'
    ```
 
-6. Push to the branch:
+5. Push to the branch:
 
    ```
    git push -u origin <component-name>/<feature-name>
    ```
 
-7. Submit a pull request.
-8. Keep the `<component-name>/<feature-name>` branch up to date. I usually sync my repo with upstream at the start of every day (and before pushing changes to feature branch).
-   To do so, repeat step 3, then:
+6. Submit a pull request.
+8. Nice to have: Keep the `<component-name>/<feature-name>` branch up to date. I usually sync my repo with upstream at the start of every day (and before pushing changes to feature branch).
+
+   ```
+   git checkout master && git fetch upstream && git merge upstream/master && git push origin master
+   ```
+   then either `rebase`:
 
    ```
    git checkout <component-name>/<feature-name>
@@ -76,4 +74,14 @@ That's it! Your custom web component should now be integrated and functional wit
    git rebase master
 
    git push -f
+   ```
+
+   or `merge`
+
+   ```
+   git checkout <component-name>/<feature-name>
+
+   git merge --no-ff master
+
+   git push
    ```
