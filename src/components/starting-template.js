@@ -5,6 +5,7 @@
  */
 
 (() => {
+  const COMPONENT_NAME = 'mcwc-component-name';
   const template = document.createElement('template');
 
   template.innerHTML = `
@@ -24,6 +25,9 @@
   `;
 
   class MyNewCustomComponent extends HTMLElement {
+    // An array containing the names of all attributes for which the element needs change notifications.
+    static observedAttributes = [];
+
     // Fires when an instance of the element is created or updated
     constructor() {
       super();
@@ -32,19 +36,22 @@
       this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
 
-    // Fires when an instance was inserted into the document
-    connectedCallback() {}
+    // Lifecycle callback that runs when the element is added to the document
+    connectedCallback() {
+      console.log(`<${COMPONENT_NAME}> added to the page.`);
+    }
 
-    // Fires when an instance was removed from the document
-    disconnectedCallback() {}
+    // Lifecycle callback that runs when the element is removed from the document
+    disconnectedCallback() {
+      console.log(`<${COMPONENT_NAME}> removed from the page.`);
+    }
 
-    // Fires when an attribute was added, removed, or updated
-    attributeChangedCallback(attrName, oldVal, newVal) {}
-
-    // Fires when an element is moved to a new document
-    adoptedCallback() {}
+    // Lifecycle callback that runs when an observed attribute is added, removed, or changed
+    attributeChangedCallback(name, oldValue, newValue) {
+      console.log(`<${COMPONENT_NAME}> Attribute: ${name} changed from ${oldValue} to ${newValue}`);
+    }
   }
 
   // Register the custom element
-  customElements.define('mcwc-component-name', MyNewCustomComponent);
+  customElements.define(COMPONENT_NAME, MyNewCustomComponent);
 })();
